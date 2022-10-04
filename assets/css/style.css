@@ -1,0 +1,41 @@
+/* Universal Selectors */
+
+:root {
+    --primary: green;
+    --secondary: red;
+    --terciary: blue;
+    --white: azure;
+    --black: black;
+}
+
+/* ###################################################### */
+/* Element Selectors */
+
+body {
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+h1 {
+
+}
+
+p {
+
+}
+
+ol {
+
+}
+
+li {
+
+}
+
+.background {
+
+}
+
+.card {
+    
+}
