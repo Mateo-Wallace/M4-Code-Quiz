@@ -91,12 +91,13 @@ h1 {
     display: none;
 }
 
-.p-start {
+.p-menu {
     padding: 10px;
     text-align: center;
+    font-size: large;
 }
 
-.start-button-style {
+.button-style {
     margin: auto;
     display: flex;
     justify-content: center;
@@ -107,7 +108,7 @@ h1 {
     border-radius: 10px;
     transition: all 0.3s ease 0.2s;
 }
-.start-button-style:hover {
+.button-style:hover {
     box-shadow: 0px 0px 5px rgba(0,0,0,.8);
     filter: brightness(150%);
 }
