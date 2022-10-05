@@ -16,6 +16,13 @@ body {
     background-color: var(--white);
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px;
+}
+
 h1 {
 
 }
@@ -30,6 +37,30 @@ ol {
 
 li {
 
+}
+
+.highscore-link {
+    text-decoration: none;
+    color: rebeccapurple;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.highscore-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    background: none repeat scroll 0 0 transparent;
+    height: 2px;
+    width: 0;
+    transition: all 0.3s ease 0.2s;
+}
+
+.highscore-link:hover {
+    width: 100%; 
+    left: 0; 
 }
 
 .background {

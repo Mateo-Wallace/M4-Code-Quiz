@@ -1,5 +1,12 @@
 # M4-Code-Quiz
 
+## To-Do Tasks
+
+```
+Create all divs and hide them until needed
+Style header- currently working on underline link 
+```
+
 # 04 Web APIs: Code Quiz
 
 ## Your Task
