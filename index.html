@@ -1,26 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Code Quiz</title>
 </head>
 
-<body class="background">
-    <main class="card">
-        <h1>lorem jsdjfk </h1>
-        <p>lorem ipsum sum dkfdkf jf dkfj akfak dj kj</p>
-        <ol>
-            <li>lorem</li>
-            <li>lorem</li>
-            <li>lorem</li>
-            <li>lorem</li>
-        </ol>
-    </main>
+<body>
+    <div>
+        <!-- <a> tag that references highscores.html so user could go straight to
+            the scores if they want to -->
+    </div>
 
-    <script src="./assets/js/script.js"></script>
+    <div>
+        <!-- span with your timer in it -->
+    </div>
+
+    <div class="wrapper">
+        <div id="start-screen" class="start">
+            <h1>Coding Quiz Challenge</h1>
+            <!-- p tag with a little intro about the quiz -->
+
+            <!-- start button -->
+        </div>
+
+        <div id="questions" class="hide">
+            <h2 id="question-title"></h2>
+            <div id="choices" class="choices"></div>
+        </div>
+
+        <div id="end-screen" class="hide">
+            <h2>All done!</h2>
+            <p>Your final score is <span id="final-score"></span>.</p>
+            <p>
+                Enter initials: <input type="text" id="initials" max="3" />
+                <button id="submit">Submit</button>
+            </p>
+        </div>
+
+        <div id="feedback" class="feedback hide"></div>
+    </div>
+
+    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/logic.js"></script>
 </body>
+
 </html>
