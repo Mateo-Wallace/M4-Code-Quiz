@@ -8,7 +8,7 @@
     --black: black;
 }
 
-/* ###################################################### */
+/* ############################################################################################# */
 /* Element Selectors */
 
 body {
@@ -21,6 +21,25 @@ header {
     justify-content: space-between;
     flex-direction: row;
     padding: 10px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+/* ############################################################################################# */
+/* Class Selectors */
+
+/* Styles all items in header */
+.header-content {
+    color: var(--primary);
+    line-height: 25px;
+    margin: 0 10px;
+    font-size: large;
+    font-weight: bold;
 }
 
 /* Styles highscores link in header, adds underline on hover */
@@ -45,11 +64,17 @@ header {
     background: var(--primary);
 }
 
-/* Styles all items in header */
-.header-content {
-    color: var(--primary);
-    line-height: 25px;
-    margin: 0 10px;
-    font-size: large;
-    font-weight: bold;
+/* Styles the card */
+.wrapper {
+    box-shadow: 5px rgba(0,0,0,0.2);
+    border: 3px solid black;
+    width: auto;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
+
+  /* Hides any content with this class */
