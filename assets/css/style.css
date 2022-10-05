@@ -1,9 +1,9 @@
 /* Universal Selectors */
 
 :root {
-    --primary: green;
+    --primary: #57357e;
     --secondary: red;
-    --terciary: blue;
+    --terciary: #eee5f7;
     --white: azure;
     --black: black;
 }
@@ -23,50 +23,33 @@ header {
     padding: 10px;
 }
 
-h1 {
-
-}
-
-p {
-
-}
-
-ol {
-
-}
-
-li {
-
-}
-
+/* Styles highscores link in header, adds underline on hover */
 .highscore-link {
     text-decoration: none;
-    color: rebeccapurple;
-    transition: all 0.3s ease-in-out;
     position: relative;
 }
-
 .highscore-link::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 0%;
     display: block;
     background: none repeat scroll 0 0 transparent;
     height: 2px;
     width: 0;
     transition: all 0.3s ease 0.2s;
 }
-
-.highscore-link:hover {
+.highscore-link:hover::after {
     width: 100%; 
     left: 0; 
+    background: var(--primary);
 }
 
-.background {
-
-}
-
-.card {
-    
+/* Styles all items in header */
+.header-content {
+    color: var(--primary);
+    line-height: 25px;
+    margin: 0 10px;
+    font-size: large;
+    font-weight: bold;
 }
