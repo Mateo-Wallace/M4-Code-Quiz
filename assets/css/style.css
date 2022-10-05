@@ -30,6 +30,14 @@ main {
     padding-top: 100px;
 }
 
+h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: var(--primary);
+}
+
 /* ############################################################################################# */
 /* Class Selectors */
 
@@ -70,7 +78,6 @@ main {
     border: 3px solid var(--primary);
     border-radius: 10px;
     width: 70%;
-    transition: 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,4 +89,25 @@ main {
   /* Hides any content with this class */
 .hide {
     display: none;
+}
+
+.p-start {
+    padding: 10px;
+    text-align: center;
+}
+
+.start-button-style {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    font-size: large;
+    border-radius: 10px;
+    transition: all 0.3s ease 0.2s;
+}
+.start-button-style:hover {
+    box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    filter: brightness(150%);
 }
