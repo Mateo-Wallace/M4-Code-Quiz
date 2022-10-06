@@ -16,21 +16,21 @@
     <header>
         <!-- link to highscore page -->
         <a class="highscore-link header-content" href="./highscores.html">View Highscores</a>
-        <h3 class="header-content">Time: <span>00</span></h3>
+        <h3 class="header-content">Time: <span id="timer">00</span></h3>
     </header>
 
     <main>
         <div class="wrapper">
 
             <!-- Quiz start -->
-            <div id="start-screen" class="menu hide">
+            <div id="start-screen" class="menu">
                 <h1>Coding Quiz Challenge</h1>
                 <p class="p-menu">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
                 <button id="start-button" class="button-style">Start Quiz</button>
             </div>
 
             <!-- Questions cycle div -->
-            <div id="questions" class="">
+            <div id="questions" class="hide">
                 <h2 id="question-title">Filler text?</h2>
                 <div id="choices" class="choices">
                     <button id ="choice1" class="button-style answer-button">Filler 1</button>

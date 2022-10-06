@@ -1,22 +1,22 @@
 // variables to keep track of quiz state
 // currentQuestion
-// time
+var seconds = 60
 // timerId
 
 // variables to reference DOM elements
 var questionsEl = document.getElementById('questions');
+var startScreenEl = document.getElementById('start-screen');
+var endScreenEl = document.getElementById('end-screen');
 
 
 /* FUNCTION TO START THE QUIZ */
 function startQuiz() {
-    // hide start screen
+    console.log('start button clicked');
+    // hides start screen and unhides questions screen
+    startScreenEl.classList.add('hide');
+    questionsEl.classList.remove('hide');
 
-    // un-hide questions section
-
-    // start timer
-
-    // show starting time
-
+    clockTick();
     getQuestion();
 }
 
@@ -78,12 +78,22 @@ function quizEnd() {
 
 /* FUNCTION FOR UPDATING THE TIME */
 function clockTick() {
-    // update time
-
-    // check if user ran out of time
+    var counter = document.getElementById("timer");
+    seconds--;
+    counter.innerHTML =
+        (seconds < 10 ? "0" : "") + String(seconds);
+    if (seconds > 0) {
+        setTimeout(clockTick, 1000);
+    } else {
+        counter.innerHTML = "010";
+        questionsEl.classList.add('hide');
+        endScreenEl.classList.remove('hide');
+        document.getElementById('final-score').innerHTML = counter.innerHTML
+    }
 }
 
 function saveHighscore() {
+    console.log('submit button clicked')
     // get value of input box - for initials
 
     // make sure value wasn't empty
@@ -97,8 +107,6 @@ function saveHighscore() {
 }
 
 /* CLICK EVENTS */
-    // user clicks button to submit initials
-
-    // user clicks button to start quiz
-
+document.getElementById('submit-button').addEventListener('click', saveHighscore)
+document.getElementById('start-button').addEventListener('click', startQuiz)
     // user clicks on element containing choices

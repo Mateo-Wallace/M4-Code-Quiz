@@ -11,11 +11,10 @@ function printHighscores() {
 
 /* FUNCTION TO CLEAR SCORES */
 function clearHighscores() {
+    console.log('clear button clicked')
     // remove an item from local storage
     // reload the page
 }
 
-/* CLICK EVENT TO RUN THE CLEAR SCORES FUNCTION */
-
-// run function when page loads
+document.getElementById('clear').addEventListener('click', clearHighscores)
 printHighscores();
