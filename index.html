@@ -11,35 +11,42 @@
 </head>
 
 <body>
+
+    <!-- Top nav bar -->
     <header>
-        <!-- <a> tag that references highscores.html so user could go straight to
-            the scores if they want to -->
+        <!-- link to highscore page -->
         <a class="highscore-link header-content" href="./highscores.html">View Highscores</a>
         <h3 class="header-content">Time: <span>00</span></h3>
     </header>
 
     <main>
         <div class="wrapper">
-            <div id="start-screen" class="start hide">
+
+            <!-- Quiz start -->
+            <div id="start-screen" class="menu hide">
                 <h1>Coding Quiz Challenge</h1>
                 <p class="p-menu">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-
                 <button id="start-button" class="button-style">Start Quiz</button>
             </div>
 
-            <div id="questions" class="hide">
-                <h2 id="question-title"></h2>
-                <div id="choices" class="choices"></div>
+            <!-- Questions cycle div -->
+            <div id="questions" class="">
+                <h2 id="question-title">Filler text?</h2>
+                <div id="choices" class="choices">
+                    <button id ="choice1" class="button-style answer-button">Filler 1</button>
+                    <button id ="choice2" class="button-style  answer-button">Filler 2</button>
+                    <button id ="choice3" class="button-style  answer-button">Filler 3</button>
+                    <button id ="choice4" class="button-style  answer-button">Filler 4</button>
+                </div>
             </div>
 
-            <div id="end-screen" class="">
+            <!-- Quiz end -->
+            <div id="end-screen" class="menu hide">
                 <h1>All done!</h1>
                 <p class="p-menu">Your final score is <span id="final-score">00</span>.</p>
                 <p class="p-menu">Enter initials: <input type="text" id="initials" maxlength="3" /></p>
-                <button id="submit" class="button-style">Submit</button>
+                <button id="submit-button" class="button-style">Submit</button>
             </div>
-
-            <div id="feedback" class="feedback hide">
 
             </div>
         </div>
