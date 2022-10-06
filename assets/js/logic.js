@@ -1,5 +1,5 @@
 // variables to keep track of quiz state
-// currentQuestion
+let shuffledQuestions, currentQuestionIndex;
 var seconds = 60
 // timerId
 
@@ -7,6 +7,8 @@ var seconds = 60
 var questionsEl = document.getElementById('questions');
 var startScreenEl = document.getElementById('start-screen');
 var endScreenEl = document.getElementById('end-screen');
+var questionTitleEl = document.getElementById('question-title');
+var answerButtonsEl = document.getElementById('choices')
 
 
 /* FUNCTION TO START THE QUIZ */
@@ -16,25 +18,42 @@ function startQuiz() {
     startScreenEl.classList.add('hide');
     questionsEl.classList.remove('hide');
 
+    // randomizes questions and displays first question in randomized array
+    shuffledQuestions = questions.sort(() => Math.random() -.5)
+    currentQuestionIndex = 0
+    
+
     clockTick();
-    getQuestion();
+    getQuestions();
 }
 
 /* FUNCTION TO GET/SHOW EACH QUESTION */
 function getQuestions() {
-    // get current question object from array
+    resetState()
+    showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+function showQuestion(questions) {
+    questionTitleEl.innerText = questions.title;
+    questions.choices.forEach(choice => {
+        const button = document.createElement('button')
+        button.innerText = choice.text
+        button.classList.add('button-style', 'answer-button')
+        if (choice.correct) {
+            button.dataset.correct = choice.correct
+        }
+        button.addEventListener('click', selectAnswer)
+        answerButtonsEl.appendChild(button)
+    })
+}
 
-    // update title with current question
+function resetState () {
+    while (answerButtonsEl.firstChild) {
+        answerButtonsEl.removeChild (answerButtonsEl.firstChild)
+    }
+}
 
-    // clear out ant old question choices
+function selectAnswer(e) {
 
-    // loop over choices
-    // FOR {
-    // create new button for each choice
-
-    // display on the page
-
-    // }
 }
 
 /* FUNCTION FOR CLICKING A QUESTION */

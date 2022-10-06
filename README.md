@@ -7,6 +7,12 @@ Create all divs and hide them until needed
 Style header- currently working on underline link 
 ```
 
+## Citation
+
+Rana, M. (2020, November 16). JavaScript countdown 1 minute timer. codepen.io. Retrieved October 6, 2022, from https://codepen.io/masudrana2779/details/GRqzPdZ 
+
+Web Dev Simplified. (2019, June 15). Build a Quiz App with JavaScript. YouTube. Retrieved October 6, 2022, from https://www.youtube.com/watch?v=riDzcEQbX6k&amp;list=PLv2eRoPT92sJKSJPF_XKixhmAUU8P2JbW&amp;index=1 
+
 # 04 Web APIs: Code Quiz
 
 ## Your Task
