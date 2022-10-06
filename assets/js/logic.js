@@ -8,7 +8,9 @@ var questionsEl = document.getElementById('questions');
 var startScreenEl = document.getElementById('start-screen');
 var endScreenEl = document.getElementById('end-screen');
 var questionTitleEl = document.getElementById('question-title');
-var answerButtonsEl = document.getElementById('choices')
+var answerButtonsEl = document.getElementById('choices');
+var feedbackEl = document.getElementById('feedback');
+var counter = document.getElementById("timer");
 
 
 /* FUNCTION TO START THE QUIZ */
@@ -19,9 +21,8 @@ function startQuiz() {
     questionsEl.classList.remove('hide');
 
     // randomizes questions and displays first question in randomized array
-    shuffledQuestions = questions.sort(() => Math.random() -.5)
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
-    
 
     clockTick();
     getQuestions();
@@ -33,6 +34,13 @@ function getQuestions() {
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 function showQuestion(questions) {
+    console.log('currentQuestionIndex: ' + currentQuestionIndex)
+    if (currentQuestionIndex > 3) {
+        endScreenEl.classList.add('stop-time')
+        questionsEl.classList.add('hide');
+        endScreenEl.classList.remove('hide');
+        document.getElementById('final-score').innerHTML = counter.innerHTML
+    }
     questionTitleEl.innerText = questions.title;
     questions.choices.forEach(choice => {
         const button = document.createElement('button')
@@ -46,13 +54,36 @@ function showQuestion(questions) {
     })
 }
 
-function resetState () {
+function resetState() {
     while (answerButtonsEl.firstChild) {
-        answerButtonsEl.removeChild (answerButtonsEl.firstChild)
+        answerButtonsEl.removeChild(answerButtonsEl.firstChild)
     }
 }
 
 function selectAnswer(e) {
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct;
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsEl.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    currentQuestionIndex++
+    getQuestions()
+}
+
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        feedbackEl.classList.remove('hide')
+        feedbackEl.innerHTML = 'Correct'
+    } else {
+        seconds--
+        feedbackEl.classList.remove('hide')
+        feedbackEl.innerHTML = 'Wrong'
+    }
+}
+
+function clearStatusClass() {
 
 }
 
@@ -84,27 +115,18 @@ function questionClick(event) {
     // else, get the next question    
 }
 
-/* FUNCTION TO END THE QUIZ */
-function quizEnd() {
-    // stop timer
-
-    // show end screen
-
-    // show final score
-
-    // hide questions section
-}
-
 /* FUNCTION FOR UPDATING THE TIME */
 function clockTick() {
-    var counter = document.getElementById("timer");
     seconds--;
     counter.innerHTML =
         (seconds < 10 ? "0" : "") + String(seconds);
-    if (seconds > 0) {
+    if (endScreenEl.classList.contains('stop-time')) {
+        counter.innerHTML = document.getElementById('final-score').innerHTML
+    } else if (seconds > 0) {
         setTimeout(clockTick, 1000);
+
     } else {
-        counter.innerHTML = "010";
+        counter.innerHTML = '00'
         questionsEl.classList.add('hide');
         endScreenEl.classList.remove('hide');
         document.getElementById('final-score').innerHTML = counter.innerHTML
