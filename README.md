@@ -13,7 +13,7 @@ While building this project I learned how to:
 
 ## Link to Deployed Site
 
-To view the project click here: [Code Quiz](#license)
+To view the project click here: [Code Quiz](https://mateo-wallace.github.io/M4-Code-Quiz/index.html)
 
 ## Screenshots
 
