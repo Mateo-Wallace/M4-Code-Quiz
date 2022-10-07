@@ -41,8 +41,8 @@ var questions = [
         choices: [
             { text: 'JavaScript', correct: false},
             { text: 'terminal / bash', correct: false},
-            { text: 'for loops', correct: true},
-            { text: 'console.log', correct: false}
+            { text: 'for loops', correct: false},
+            { text: 'console.log', correct: true}
         ]
     }
 ];

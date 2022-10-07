@@ -20,7 +20,7 @@ function startQuiz() {
     startScreenEl.classList.add('hide');
     questionsEl.classList.remove('hide');
 
-    // randomizes questions and displays first question in randomized array
+    // randomizes questions and creates a randomized array
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
 
@@ -42,77 +42,44 @@ function showQuestion(questions) {
         document.getElementById('final-score').innerHTML = counter.innerHTML
     }
     questionTitleEl.innerText = questions.title;
-    questions.choices.forEach(choice => {
+    questions.choices.forEach(choices => {
         const button = document.createElement('button')
-        button.innerText = choice.text
+        button.innerText = choices.text
         button.classList.add('button-style', 'answer-button')
-        if (choice.correct) {
-            button.dataset.correct = choice.correct
+        if (choices.correct === true) {
+            button.classList.add('correct')
         }
         button.addEventListener('click', selectAnswer)
         answerButtonsEl.appendChild(button)
     })
 }
 
+// removes last questions buttons
 function resetState() {
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild)
     }
 }
 
+// shows review div, and takes away time if incorrect answer
 function selectAnswer(e) {
     const selectedButton = e.target
-    const correct = selectedButton.dataset.correct;
-    setStatusClass(document.body, correct)
-    Array.from(answerButtonsEl.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
-    })
-    currentQuestionIndex++
-    getQuestions()
-}
-
-function setStatusClass(element, correct) {
-    clearStatusClass(element)
-    if (correct) {
+    if (selectedButton.classList.contains('correct')) {
         feedbackEl.classList.remove('hide')
         feedbackEl.innerHTML = 'Correct'
+        setTimeout(function () {
+            feedbackEl.innerHTML = '';
+        }, 1000);
     } else {
-        seconds--
+        seconds -= 10
         feedbackEl.classList.remove('hide')
         feedbackEl.innerHTML = 'Wrong'
+        setTimeout(function () {
+            feedbackEl.innerHTML = '';
+        }, 1000);
     }
-}
-
-function clearStatusClass() {
-
-}
-
-/* FUNCTION FOR CLICKING A QUESTION */
-function questionClick(event) {
-
-    // if the clicked element is not a choice button, do nothing.
-    if (something) {
-
-    }
-
-    // check if user guessed wrong
-    if (something) {
-        // penalize time
-
-        // display new time on page
-
-        // give them feedback, letting them know it's wrong
-    } else {
-        // give them feedback, letting them know it's right
-    }
-
-    // flash right/wrong feedback on page for a short period of time
-
-    // move to next question
-
-    // check if we've run out of questions
-    // if so, end the quiz
-    // else, get the next question    
+    currentQuestionIndex++
+    getQuestions()
 }
 
 /* FUNCTION FOR UPDATING THE TIME */
@@ -135,19 +102,31 @@ function clockTick() {
 
 function saveHighscore() {
     console.log('submit button clicked')
-    // get value of input box - for initials
-
-    // make sure value wasn't empty
+    var initials = document.getElementById('initials').value;
+    var finalScore = counter.innerHTML
+    if (initials == '') {
+        alert('Please input at least 1 character')
+        return null
+    }
     // get saved scores from localstorage, or if not any, set to empty array
-
+    // get value of input box - for initials
     // format new score object for current user
+    var currentScore = { init: initials, score: finalScore };
+    // get saved scores from localstorage, or if not any, set to empty array
+    var savedScores = JSON.parse(localStorage.getItem("savedScores"));
+    // make sure val
+    if (savedScores !== null) {
+        savedScores.push(currentScore);
+        // save to local storage
+        localStorage.setItem("savedScores", JSON.stringify(savedScores));
+    } else {
+        savedScores = [currentScore];
+        localStorage.setItem("savedScores", JSON.stringify(savedScores));
+    }
 
-    // save to local storage
-
-    // redirect to next page
+    window.location.href = "./highscores.html";
 }
 
 /* CLICK EVENTS */
 document.getElementById('submit-button').addEventListener('click', saveHighscore)
 document.getElementById('start-button').addEventListener('click', startQuiz)
-    // user clicks on element containing choices
