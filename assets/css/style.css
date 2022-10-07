@@ -139,3 +139,13 @@ h2 {
     justify-content: space-around;
     margin-top: 10px;
 }
+
+.list-style {
+    display: block;
+    padding: 3px;
+    font-size: large;
+}
+
+.list-style:nth-child(odd) {
+    background-color: rgb(204, 236, 236);
+}
