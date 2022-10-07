@@ -1,12 +1,5 @@
 # M4-Code-Quiz
 
-## To-Do Tasks
-
-```
-Create all divs and hide them until needed
-Style header- currently working on underline link 
-```
-
 ## Citation
 
 Rana, M. (2020, November 16). JavaScript countdown 1 minute timer. codepen.io. Retrieved October 6, 2022, from https://codepen.io/masudrana2779/details/GRqzPdZ 

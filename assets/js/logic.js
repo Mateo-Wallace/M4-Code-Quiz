@@ -15,7 +15,6 @@ var counter = document.getElementById("timer");
 
 /* FUNCTION TO START THE QUIZ */
 function startQuiz() {
-    console.log('start button clicked');
     // hides start screen and unhides questions screen
     startScreenEl.classList.add('hide');
     questionsEl.classList.remove('hide');
@@ -34,7 +33,6 @@ function getQuestions() {
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 function showQuestion(questions) {
-    console.log('currentQuestionIndex: ' + currentQuestionIndex)
     if (currentQuestionIndex > 3) {
         endScreenEl.classList.add('stop-time')
         questionsEl.classList.add('hide');
@@ -100,24 +98,18 @@ function clockTick() {
     }
 }
 
+// saves relevant values, add to json local storage, nav to highscores page
 function saveHighscore() {
-    console.log('submit button clicked')
     var initials = document.getElementById('initials').value;
     var finalScore = counter.innerHTML
     if (initials == '') {
         alert('Please input at least 1 character')
         return null
     }
-    // get saved scores from localstorage, or if not any, set to empty array
-    // get value of input box - for initials
-    // format new score object for current user
     var currentScore = { init: initials, score: finalScore };
-    // get saved scores from localstorage, or if not any, set to empty array
     var savedScores = JSON.parse(localStorage.getItem("savedScores"));
-    // make sure val
     if (savedScores !== null) {
         savedScores.push(currentScore);
-        // save to local storage
         localStorage.setItem("savedScores", JSON.stringify(savedScores));
     } else {
         savedScores = [currentScore];

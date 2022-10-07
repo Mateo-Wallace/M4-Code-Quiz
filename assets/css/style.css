@@ -140,12 +140,12 @@ h2 {
     margin-top: 10px;
 }
 
+/* Styles list on highscores page */
 .list-style {
     display: block;
     padding: 3px;
     font-size: large;
 }
-
 .list-style:nth-child(odd) {
     background-color: rgb(204, 236, 236);
 }
